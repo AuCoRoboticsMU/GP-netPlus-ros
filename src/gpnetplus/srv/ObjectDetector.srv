@@ -1,0 +1,5 @@
+# request params
+sensor_msgs/Image rgb_image
+---
+# response params
+BoundingBoxes bounding_boxes

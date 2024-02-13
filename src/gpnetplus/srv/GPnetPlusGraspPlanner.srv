@@ -1,0 +1,6 @@
+# request params
+sensor_msgs/Image[] depth_images
+sensor_msgs/CameraInfo camera_info
+---
+# response params
+GraspProposals grasp_proposals
