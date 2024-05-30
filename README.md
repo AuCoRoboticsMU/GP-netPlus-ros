@@ -1,16 +1,16 @@
-# Proposing Grasps for Mobile Manipulators in Domestic Environments
+# GP-net+ ROS package: Learning to Grasp Unknown Objects in Domestic Environments
 
-This is a ROS package for GP-net+ to be used on mobile manipulators. It uses a 
-GP-net+ model to propose grasps on objects shown in depth images. A pre-trained model
-for a robot with a PAL parallel jaw gripper is available at [zenodo](https://zenodo.org/records/10653956).
-If you want to use GP-net+ for alternative grippers, you have to train a new model by
-generating a new training dataset and train a new model with our code available on [GitHub](https://github.com/AuCoRoboticsMU/GP-netplus).
+This is a ROS package for GP-net+ that can be used to grasp unknown objects in domestic environments using mobile manipulators. It uses a 
+GP-net+ to propose grasps on unknown objects in depth images without requiring any additional object detection or object segmentation. A pre-trained model
+for a robot with a PAL parallel jaw gripper is available at [zenodo](https://zenodo.org/records/10653956) with the "ros_gpnet_plus.zip" file.
+If you want to use GP-net+ for alternative grippers, you have to train a new model using
+a new training dataset generated with our simulation environment and training code available on [GitHub](https://github.com/AuCoRoboticsMU/GP-netplus) and [zenodo](https://zenodo.org/records/10653956).
 
 
 -----
 ### Installation
 
-This code has been tested with a ROS noetic installation and python 3.8.10.
+This code has been tested with a ROS noetic installation and Python 3.8.10.
 Besides the ROS installation, the package requirements are listed in `requirements.txt`.
 We recommend an installation via docker or a virtual environment.
 
@@ -20,7 +20,7 @@ the workspace and `source catkin_ws/devel/setup.bash` in order to use the packag
 ---
 ### Use GP-net+ to grasp objects
 
-GP-net+ can be used by launching the `grasp_planning_node.py` and use the planning service by
+GP-net+ can be used by launching the `grasp_planning_node.py` and uses the planning service by
 sending a depth image and the camera info to the node, e.g.:
 
 ```
@@ -34,12 +34,12 @@ An example usage script is given in `scripts/tiago_example.py`, which can be use
 
 `roslaunch gpnetplus tiago_example.launch`
 
-This script also show-cases how an object detector model can be used to achieve target-driven grasping of objects.
+This script also showcases how an object detector model can be used to achieve target-driven grasping of objects.
 It uses a pre-trained FASTER-RCNN model from Pytorch to allocate object ID's to grasp proposals, which can then be
 selected in a GUI build with TKinter.
 
-Note that you will have to adjust the `model_dir` in the launch file to the path were you
-your GP-net+ model is stored. A pretrained model is available at [zenodo](https://zenodo.org/record/10653956).
+Note that you will have to adjust the `model_dir` in the launch file to the path where
+your GP-net+ model is stored.
 
 ----------------
 If you use this code, please cite
